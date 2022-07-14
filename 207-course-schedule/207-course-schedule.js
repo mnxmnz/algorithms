@@ -22,7 +22,6 @@ const hasCycleDFS = (node, adjList, visited, arrive, depart) => {
     for(let neighbor of adjList[node]) {
         if(!visited[neighbor]) {
             visited[neighbor] = true;
-            
             if(hasCycleDFS(neighbor, adjList, visited, arrive, depart)) return true;
         } else {
             if(depart[neighbor] === 0) return true;
