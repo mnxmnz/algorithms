@@ -3,13 +3,8 @@ function solution(a, b) {
     
     let answer = 0;
     
-    let smaller = a;
-    let bigger = b;
-    
-    if (b < a) {
-        smaller = b;
-        bigger = a;
-    }
+    let smaller = a < b ? a : b;
+    let bigger = a > b ? a : b;
     
     for(i = smaller; i <= bigger; i++) answer += i;
     
