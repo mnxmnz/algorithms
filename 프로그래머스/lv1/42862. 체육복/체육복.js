@@ -1,7 +1,3 @@
-const n = 5;
-const lost = [4, 2];
-const reserve = [3, 5];
-
 function solution(n, lost, reserve) {
 	let lostNum = lost.filter(person => !reserve.includes(person)).sort((a, b) => a - b);
 	let lostNumLen = lostNum.length;
