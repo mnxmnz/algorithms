@@ -1,9 +1,9 @@
 function solution(n, lost, reserve) {
-	let lostNum = lost.filter(person => !reserve.includes(person)).sort((a, b) => a - b);
-	let lostNumLen = lostNum.length;
+	const lostNum = lost.filter(person => !reserve.includes(person)).sort((a, b) => a - b);
+	const lostNumLen = lostNum.length;
 
-	let reserveNum = reserve.filter(person => !lost.includes(person)).sort((a, b) => a - b);
-	let reserveNumLen = reserveNum.length;
+	const reserveNum = reserve.filter(person => !lost.includes(person)).sort((a, b) => a - b);
+	const reserveNumLen = reserveNum.length;
 
 	let answer = n - lostNum.length;
 
