@@ -8,7 +8,5 @@ function solution(a, b) {
         sum += months[i];
     }
     
-    answer = days[(sum += b) % 7];
-    
-    return answer;
+    return days[(sum += b) % 7];
 }
