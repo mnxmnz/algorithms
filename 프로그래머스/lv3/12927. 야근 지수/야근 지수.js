@@ -12,7 +12,7 @@ function solution(n, works) {
         const max = sorted[length - 1];
         
         for(let i = length - 1; 0 <= i; i--) {
-            if(sorted[i] >= max) {
+            if(max === sorted[i]) {
                 sorted[i]--;
                 n--;
             }
