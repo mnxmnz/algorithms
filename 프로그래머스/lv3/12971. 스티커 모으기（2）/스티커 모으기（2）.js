@@ -15,8 +15,6 @@
 function solution(sticker) {
     const length = sticker.length + 2;
     // 누적 합을 구하기 위해 스티커의 개수만큼 0으로 초기화
-    // dp[0]: 첫 번째 스티커까지 뜯었을 때 누적 합
-    // dp[1]: 두 번째 스티커까지 뜯었을 때 누적 합
     // dp1: 첫 번째 스티커의 값을 더하는 경우
     const dp1 = new Array(length).fill(0);
     // dp2: 첫 번째 스티커의 값을 더하지 않는 경우
