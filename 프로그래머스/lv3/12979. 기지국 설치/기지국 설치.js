@@ -7,7 +7,7 @@ function solution(n, stations, w) {
     let start = 1;
     
     for(const x of stations) {
-        if(start < x - w) answer += Math.ceil((x - w - start) / range);
+        answer += Math.ceil((x - w - start) / range);
         start = x + w + 1;
     }
     
