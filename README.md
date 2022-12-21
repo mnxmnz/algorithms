@@ -312,3 +312,27 @@ const results = arr.shift();
 console.log(arr);	// ['b', 'c', 'd', 'e']
 console.log(results);	// a
 ```
+
+## 017. 진법 변환하기
+
+### 17-1. `toString`
+
+```js
+// 10진수를 2진수로 변환
+const decimal = 10
+const binary = decimal.toString(2);
+
+console.log(decimal) // 10
+console.log(binary) // 1010
+```
+
+### 17-2. `parseInt`
+
+```js
+// 2진수를 10진수로 변환
+const binary = 101010
+const decimal = parseInt(binary, 2);
+
+console.log(binary) // 101010
+console.log(decimal) // 42
+```
