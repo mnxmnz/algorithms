@@ -336,3 +336,17 @@ const decimal = parseInt(binary, 2);
 console.log(binary) // 101010
 console.log(decimal) // 42
 ```
+
+## 018. 소수 판별하기
+
+```js
+function isPrime(num) {
+	if (num === 1) return false;
+
+	for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) {
+		if (num % i === 0) return false;
+	}
+
+	return true;
+}
+```
