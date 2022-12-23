@@ -42,7 +42,7 @@ console.log(arr); // ['a', 'b', 'c'];
 console.log(results); // cba
 ```
 
-## 004. 특정 조건을 충족하는 배열 요소만 반환하기
+## 004. 특정 조건을 충족하는 모든 배열 요소 반환하기
 
 ### 4-1. `filter`
 
@@ -360,3 +360,29 @@ function factorial(num) {
 	else return num * factorial(num - 1);
 }
 ```
+
+## 020. 특정 조건을 충족하는 배열 요소 찾기
+
+### 20-1. `some()`
+
+```js
+const arr = [1, 2, 3, 4, 5];
+const even = (element) => element % 2 === 0;
+
+console.log(arr.some(even)); // true
+```
+
+- 배열 요소 중 판별 함수를 통과하는 요소가 존재하는지 테스트
+- 빈 배열에서 호출하면 무조건 `false` 반환
+
+### 20-2. `find()`
+
+```js
+const arr = [5, 12, 8, 130, 44];
+const found = arr.find(element => 10 < element);
+
+console.log(found); // 12
+```
+
+- 판별 함수를 만족하는 첫 번째 요소의 값 반환
+- 만족하는 요소가 없으면 `undefined` 반환
