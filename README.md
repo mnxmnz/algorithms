@@ -386,3 +386,16 @@ console.log(found); // 12
 
 - 판별 함수를 만족하는 첫 번째 요소의 값 반환
 - 만족하는 요소가 없으면 `undefined` 반환
+
+## 021. 절댓값 구하기
+
+### 21-1. `Math.abs()`
+
+```js
+console.log(Math.abs(-1)); // 1
+console.log(Math.abs(1)); // 1
+console.log(Math.abs('1')); // 1
+console.log(Math.abs('-1')); // 1
+console.log(Math.abs('STRING')); // NaN
+console.log(Math.abs(null)); // 0
+```
