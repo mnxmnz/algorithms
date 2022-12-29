@@ -1,11 +1,4 @@
-function solution(s){
-    let pCount = 0;
-    let yCount = 0;
-    
-    for(let x of s.toLowerCase()) {
-        if (x === "p") pCount++; 
-        else if (x === "y") yCount++;
-    }
-    
-    return (pCount === yCount) ? true : false;
+function solution(s) {
+    const words = s.toLowerCase().split("");
+    return words.filter(v => v === "p").length === words.filter(v => v === "y").length;
 }
