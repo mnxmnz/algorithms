@@ -413,3 +413,17 @@ map.set('c', 3);
 
 console.log([...map].sort((a, b) => b[1] - a[1])); // [['c', 3],['b', 2],['a', 1]]
 ```
+
+## 023. 문자열에서 특정 문자 제거하기
+
+### 23-1. `replace()`
+
+```js
+const words = "ABCDEABCDE";
+const replace1 = words.replace("DE", "");
+const replace2 = words.replace(/DE/g, "");
+
+console.log(words); // "ABCDEABCDE"
+console.log(replace1); // "ABCABCDE"
+console.log(replace2); // "ABCABC"
+```
