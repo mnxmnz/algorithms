@@ -27,6 +27,74 @@
 
 ![img.png](https://user-images.githubusercontent.com/48766355/210856358-b049596a-625b-438e-a42e-8ceea58580a3.png)
 
+### 3. DFS/BFS
+
+> **그래프 탐색 알고리즘**
+
+- 탐색: 많은 양의 데이터 중에서 **원하는 데이터를 찾는 과정**
+
+<details>
+
+<summary>DFS/BFS 배경지식</summary>
+
+- 스택 자료구조
+    - 먼저 들어온 데이터가 나중에 나가는 형식입니다.(선입후출)
+    - **입구와 출구가 동일한 형태입니다.**
+
+- 큐 자료구조
+    - 먼저 들어온 데이터가 먼저 나가는 형식입니다.(선입선출)
+    - **입구와 출구가 모두 뚫려 있는 터널과 같은 형태입니다.**
+
+- 재귀 함수
+    - **자기 자신을 다시 호출하는 함수입니다.**
+    - 재귀 함수의 종료 조건을 명시하는 것이 필요합니다.
+    - 종료 조건을 제대로 명시하지 않으면 함수가 무한히 호출될 수 있습니다.
+    - 재귀 함수를 사용한 대표적인 문제는 두 개의 자연수에 대한 최대공약수를 구하는 **유클리드 호제법**입니다.
+    - 재귀 함수를 잘 활용하면 복잡한 알고리즘을 간결하게 작성할 수 있습니다.(단, 오히려 다른 사람이 이해하기 어려운 코드가 될 수도 있으므로 신중하게 사용해야 합니다.)
+    - 컴퓨터가 함수를 연속적으로 호출하면 컴퓨터 메모리 내부의 스택 프레임에 쌓입니다.(스택을 사용해야 할 때 구현상 **스택 라이브러리 대신에 재귀 함수를 이용**하는 경우가 많습니다.)
+
+</details>
+
+#### 3-1. DFS
+
+- DFS는 **깊이 우선 탐색**이라고도 부르며 그래프에서 **깊은 부분을 우선적으로 탐색하는 알고리즘**입니다.
+- DFS는 **스택 자료구조(혹은 재귀 함수)를 이용**하며, 구체적인 동작 과정은 다음과 같습니다.
+    1. 탐색 시작 노드를 스택에 삽입하고 방문 처리를 합니다.
+    2. 스택의 최상단 노드에 방문하지 않은 인접한 노드가 하나라도 있으면 그 노드를 스택에 넣고 방문 처리합니다. 방문하지 않은 인접 노드가 없으면 스택에서 최상단 노드를 꺼냅니다.
+    3. 더 이상 2번의 과정을 수행할 수 없을 때까지 반복합니다.
+
+
+<details>
+
+<summary>DFS/BFS JS 구현</summary>
+
+```js
+function dfs(graph, start) {
+  const stack = [start];
+  const result = [];
+  const visited = {};
+
+  visited[start] = true;
+
+  while (stack.length) {
+    const currentVertex = stack.pop();
+    result.push(currentVertex);
+
+    graph[currentVertex].forEach(neighbor => {
+      if (!visited[neighbor]) {
+        visited[neighbor] = true;
+
+        stack.push(neighbor);
+      }
+    });
+  }
+
+  return result;
+}
+```
+
+</details>
+
 <br />
 
 ## 🪴 자바스크립트 활용
@@ -481,11 +549,9 @@ console.log(replace2); // "ABCABC"
 ```js
 function isPrime(num) {
   if (num === 1) return false;
-
   for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) {
     if (num % i === 0) return false;
   }
-
   return true;
 }
 ```
@@ -516,6 +582,6 @@ function gcd(a, b) {
 
 <br />
 
-## 5. Reference
+## 📚 참고 자료
 
 - [이것이 취업을 위한 코딩 테스트다 with 파이썬](https://product.kyobobook.co.kr/detail/S000001810273)
