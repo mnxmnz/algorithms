@@ -1,26 +1,51 @@
-# 알고리즘 공부 📚
+# Solve-Algorithms
 
-## 001. 홀/짝 합 공식
+## 🌱 개념 정리
 
-- 범위: 1 ~ n
-- 홀수의 합: $n^2$
-- 짝수의 합: $n^2+n ⇒ n(n+1)$
+### 1. 그리디 알고리즘
 
-## 002. 배열 요소의 합 구하기
+> **현재 상황에서 지금 당장 좋은 것만 고르는 방법**
 
-### 2-1. `forEach`
+- 일반적인 상황에서 그리디 알고리즘은 최적의 해를 보장할 수 없을 때가 많습니다.
+- **탐욕법으로 얻은 해가 최적의 해가 되는 상황에서, 이를 추론할 수 있어야 풀리도록 출제하는 경우가 많습니다.**
+- 그리디 알고리즘을 사용한 대표적인 문제는 거스름 돈 문제입니다.
+  - 가지고 있는 동전 중 큰 단위가 항상 작은 단위의 배수라면 그리디 알고리즘을 적용할 수 있습니다.
+  - 거스름 돈 800원에서 화폐 단위가 500원, 400원, 100원이면 배수 단위가 아니라서 그리디 알고리즘을 적용할 수 없습니다.
+
+<br />
+
+### 2. 구현
+
+> **머릿속에 있는 알고리즘을 소스코드로 바꾸는 과정**
+
+- 구현 문제 예시
+  1. 알고리즘은 간단한데 코드가 지나치게 길어지는 문제
+  2. 실수 연산을 다루며 특정 소수점 자리까지 출력하는 문제
+  3. 문자열을 특정 기준에 따라 끊어 처리하는 문제
+  4. 적절한 라이브러리를 찾아서 해결해야 하는 문제
+- 시뮬레이션 및 완전 탐색 문제에서는 2차원 공간에서의 **방향 벡터**가 자주 활용됩니다.
+
+![img.png](https://user-images.githubusercontent.com/48766355/210856358-b049596a-625b-438e-a42e-8ceea58580a3.png)
+
+<br />
+
+## 🪴 자바스크립트 활용
+
+### 1. 배열 요소의 합 구하기
+
+#### 1-1. `forEach`
 
 ```js
 const numbers = [1, 2, 3, 4, 5];
 let sum = 0;
 
-numbers.forEach(n => sum += n);
+numbers.forEach(n => (sum += n));
 
-console.log(numbers) // [1, 2, 3, 4, 5]
+console.log(numbers); // [1, 2, 3, 4, 5]
 console.log(sum); // 15
 ```
 
-### 2-2. `reduce`
+#### 1-2. `reduce`
 
 ```js
 const numbers = [1, 2, 3, 4, 5];
@@ -30,9 +55,11 @@ console.log(numbers); // [1, 2, 3, 4, 5]
 console.log(sum); // 15
 ```
 
-## 003. 배열 요소의 오른쪽부터 연산하기
+<br />
 
-### 3-1. `reduceRight`
+### 2. 배열 요소의 오른쪽부터 연산하기
+
+#### 2-1. `reduceRight`
 
 ```js
 const arr = ['a', 'b', 'c'];
@@ -42,21 +69,28 @@ console.log(arr); // ['a', 'b', 'c'];
 console.log(results); // cba
 ```
 
-## 004. 특정 조건을 충족하는 모든 배열 요소 반환하기
+<br />
 
-### 4-1. `filter`
+### 3. 특정 조건을 충족하는 모든 배열 요소 반환하기
+
+#### 3-1. `filter`
 
 ```js
-const arr = [{ name: 'YD', money: 500000 }, { name: 'Roky', money: 200000 }];
+const arr = [
+  { name: 'YD', money: 500000 },
+  { name: 'Roky', money: 200000 },
+];
 const results = arr.filter(v => v.money > 300000);
 
 console.log(arr); // [{ name: 'YD', money: 500000 }, { name: 'Roky', money: 200000 }]
 console.log(results); // [{name: "YD", money: 500000}]
 ```
 
-## 005. 모든 배열 요소에 같은 연산 처리하기
+<br />
 
-### 5-1. `map`
+### 4. 모든 배열 요소에 같은 연산 처리하기
+
+#### 4-1. `map`
 
 ```js
 const arr = [3, 4, 5, 6];
@@ -66,9 +100,11 @@ console.log(arr); // [3, 4, 5, 6]
 console.log(results); // [9, 12, 15, 18]
 ```
 
-## 006. 배열 요소 중 특정 인덱스만 반환하기
+<br />
 
-### 6-1. `slice`
+### 5. 배열 요소 중 특정 인덱스만 반환하기
+
+#### 5-1. `slice`
 
 ```js
 const arr = [0, 1, 2, 3, 4, 5];
@@ -90,7 +126,7 @@ console.log(results); // [3, 4, 5]
 
 - 첫 번째 인자만 작성하면 시작 인덱스부터 마지막 인덱스까지 복사
 
-### 6-2. `splice`
+#### 5-2. `splice`
 
 ```js
 const arr = [0, 1, 2, 3, 4, 5];
@@ -102,9 +138,11 @@ console.log(results); // [1, 2, 3, 4]
 
 - 두 번째 인자의 값 포함
 
-## 007. 배열의 특정 요소를 삭제, 추가, 대체하기
+<br />
 
-### 7-1. `splice`
+### 6. 배열의 특정 요소를 삭제, 추가, 대체하기
+
+#### 6-1. `splice`
 
 ```js
 const arr = [0, 1, 2, 3, 4, 5];
@@ -146,23 +184,27 @@ console.log(results); // [3, 4, 5]
 
 - 첫 번째 인자만 작성하면 시작 인덱스부터 마지막 인덱스까지 삭제
 
-## 008. 거듭제곱/제곱근 구하기
+<br />
 
-### 8-1. `**`
+### 7. 거듭제곱/제곱근 구하기
+
+#### 7-1. `**`
 
 ```js
 console.log(2 ** 10); // 1024
 ```
 
-### 8-2. `Math.sqrt`
+#### 7-2. `Math.sqrt`
 
 ```js
 console.log(Math.sqrt(1024)); // 32
 ```
 
-## 009. 정수/실수 확인하기
+<br />
 
-### 9-1. `Number.isInteger`
+### 8. 정수/실수 확인하기
+
+#### 8-1. `Number.isInteger`
 
 ```js
 console.log(Number.isInteger(10)); // true
@@ -171,7 +213,7 @@ console.log(Number.isInteger(-10)); // true
 console.log(Number.isInteger(123.123)); // false
 ```
 
-### 9-2. `%`
+#### 8-2. `%`
 
 ```js
 console.log(10 % 1 === 0); // true
@@ -180,9 +222,11 @@ console.log(-10 % 1 === 0); // true
 console.log(123.123 === 0); // false
 ```
 
-## 010. 배열 오름/내림차순 정렬하기
+<br />
 
-### 10-1. `sort`
+### 9. 배열 오름/내림차순 정렬하기
+
+#### 9-1. `sort`
 
 ```js
 const arr = [3, 1, 7, 5];
@@ -200,9 +244,11 @@ console.log(arr); // [7, 5, 3, 1]
 console.log(descending); // [7, 5, 3, 1]
 ```
 
-## 011. 배열 최대/최소 구하기
+<br />
 
-### 11-1. `Math.max`
+### 10. 배열 최대/최소 구하기
+
+#### 10-1. `Math.max`
 
 ```js
 const arr = [1, 2, 3, 4, 5];
@@ -210,7 +256,7 @@ const arr = [1, 2, 3, 4, 5];
 console.log(Math.max(...arr)); // 5
 ```
 
-### 11-2. `Math.min`
+#### 10-2. `Math.min`
 
 ```js
 const arr = [1, 2, 3, 4, 5];
@@ -218,9 +264,11 @@ const arr = [1, 2, 3, 4, 5];
 console.log(Math.min(...arr)); // 1
 ```
 
-## 012. 문자열에서 특정 문자 위치 찾기
+<br />
 
-### 12-1. `indexOf`
+### 11. 문자열에서 특정 문자 위치 찾기
+
+#### 11-1. `indexOf`
 
 ```js
 const str = 'abcdeabcde';
@@ -233,141 +281,131 @@ console.log(results); // 1
 - 문자열에서 특정 문자를 찾고 해당 문자가 첫 번째로 나타나는 위치의 index 값 반환
 - 특정 문자열이 존재하지 않으면 -1 반환
 
-## 013. 배열 중복 제거하기
+<br />
 
-### 13-1. `set`
+### 12. 배열 중복 제거하기
+
+#### 12-1. `set`
 
 ```js
 const arr = ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A'];
 const results = [...new Set(arr)];
 
-console.log(arr);	// ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A']
-console.log(results);	// ['A', 'B', 'C', 'D', 'E']
+console.log(arr); // ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A']
+console.log(results); // ['A', 'B', 'C', 'D', 'E']
 ```
 
-### 13-2. `filter` `indexOf`
+#### 12-2. `filter` `indexOf`
 
 ```js
 const arr = ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A'];
 const results = arr.filter((v, i) => arr.indexOf(v) === i);
 
-console.log(arr);	// ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A']
-console.log(results);	// ['A', 'B', 'C', 'D', 'E']
+console.log(arr); // ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A']
+console.log(results); // ['A', 'B', 'C', 'D', 'E']
 ```
 
-### 13-3. `reduce` `includes`
+#### 12-3. `reduce` `includes`
 
 ```js
 const arr = ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A'];
-const results = arr.reduce((acc, cur) => acc.includes(cur) ? acc : [...acc, cur], []);
+const results = arr.reduce((acc, cur) => (acc.includes(cur) ? acc : [...acc, cur]), []);
 
-console.log(arr);	// ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A']
-console.log(results);	// ['A', 'B', 'C', 'D', 'E']
+console.log(arr); // ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A']
+console.log(results); // ['A', 'B', 'C', 'D', 'E']
 ```
 
-### 13-4. `forEach` `includes`
+#### 12-4. `forEach` `includes`
 
 ```js
 const arr = ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A'];
 const results = [];
 
-arr.forEach((v) => { if(!results.includes(v)) results.push(v) })
+arr.forEach(v => {
+  if (!results.includes(v)) results.push(v);
+});
 
-console.log(arr);	// ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A']
-console.log(results);	// ['A', 'B', 'C', 'D', 'E']
+console.log(arr); // ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A']
+console.log(results); // ['A', 'B', 'C', 'D', 'E']
 ```
 
-## 014. 문자열 반복하기
+<br />
 
-### 14-1. `repeat`
+### 13. 문자열 반복하기
+
+#### 13-1. `repeat`
 
 ```js
 const str = 'abcabc';
 const results = str.repeat(3);
 
-console.log(str);	// abcabc
-console.log(results);	// abcabcabcabcabcabc
+console.log(str); // abcabc
+console.log(results); // abcabcabcabcabcabc
 ```
 
-## 015. 배열의 특정 범위를 하나의 값으로 채우기
+<br />
 
-### 15-1. `fill`
+### 14. 배열의 특정 범위를 하나의 값으로 채우기
+
+#### 14-1. `fill`
 
 ```js
 const arr = ['a', 'b', 'c', 'd', 'e'];
 const results = arr.fill('A', 1, 3);
 
-console.log(arr);	// ['a', 'A', 'A', 'd', 'e']
-console.log(results);	// ['a', 'A', 'A', 'd', 'e']
+console.log(arr); // ['a', 'A', 'A', 'd', 'e']
+console.log(results); // ['a', 'A', 'A', 'd', 'e']
 ```
 
-## 016. 배열의 첫 번째 요소 제거하기
+<br />
 
-### 16-1. `shift`
+### 15. 배열의 첫 번째 요소 제거하기
+
+#### 15-1. `shift`
 
 ```js
 const arr = ['a', 'b', 'c', 'd', 'e'];
 const results = arr.shift();
 
-console.log(arr);	// ['b', 'c', 'd', 'e']
-console.log(results);	// a
+console.log(arr); // ['b', 'c', 'd', 'e']
+console.log(results); // a
 ```
 
-## 017. 진법 변환하기
+<br />
 
-### 17-1. `toString`
+### 16. 진법 변환하기
+
+#### 16-1. `toString`
 
 ```js
 // 10진수를 2진수로 변환
-const decimal = 10
+const decimal = 10;
 const binary = decimal.toString(2);
 
-console.log(decimal) // 10
-console.log(binary) // 1010
+console.log(decimal); // 10
+console.log(binary); // 1010
 ```
 
-### 17-2. `parseInt`
+#### 16-2. `parseInt`
 
 ```js
 // 2진수를 10진수로 변환
-const binary = 101010
+const binary = 101010;
 const decimal = parseInt(binary, 2);
 
-console.log(binary) // 101010
-console.log(decimal) // 42
+console.log(binary); // 101010
+console.log(decimal); // 42
 ```
 
-## 018. 소수 판별하기
+<br />
 
-```js
-function isPrime(num) {
-	if (num === 1) return false;
+### 17. 특정 조건을 충족하는 배열 요소 찾기
 
-	for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) {
-		if (num % i === 0) return false;
-	}
-
-	return true;
-}
-```
-
-## 019. 팩토리얼 구하기
-
-```js
-function factorial(num) {
-	if (num < 0) return -1;
-	else if (num === 0) return 1;
-	else return num * factorial(num - 1);
-}
-```
-
-## 020. 특정 조건을 충족하는 배열 요소 찾기
-
-### 20-1. `some()`
+#### 17-1. `some()`
 
 ```js
 const arr = [1, 2, 3, 4, 5];
-const even = (element) => element % 2 === 0;
+const even = element => element % 2 === 0;
 
 console.log(arr.some(even)); // true
 ```
@@ -375,7 +413,7 @@ console.log(arr.some(even)); // true
 - 배열 요소 중 판별 함수를 통과하는 요소가 존재하는지 테스트
 - 빈 배열에서 호출하면 무조건 `false` 반환
 
-### 20-2. `find()`
+#### 17-2. `find()`
 
 ```js
 const arr = [5, 12, 8, 130, 44];
@@ -387,9 +425,11 @@ console.log(found); // 12
 - 판별 함수를 만족하는 첫 번째 요소의 값 반환
 - 만족하는 요소가 없으면 `undefined` 반환
 
-## 021. 절댓값 구하기
+<br />
 
-### 21-1. `Math.abs()`
+### 18. 절댓값 구하기
+
+#### 18-1. `Math.abs()`
 
 ```js
 console.log(Math.abs(-1)); // 1
@@ -400,9 +440,11 @@ console.log(Math.abs('STRING')); // NaN
 console.log(Math.abs(null)); // 0
 ```
 
-## 022. `new Map()` 정렬하기
+<br />
 
-### 22-1. `sort`
+### 19. `new Map()` 정렬하기
+
+#### 19-1. `sort`
 
 ```js
 const map = new Map();
@@ -414,16 +456,66 @@ map.set('c', 3);
 console.log([...map].sort((a, b) => b[1] - a[1])); // [['c', 3],['b', 2],['a', 1]]
 ```
 
-## 023. 문자열에서 특정 문자 제거하기
+<br />
 
-### 23-1. `replace()`
+### 20. 문자열에서 특정 문자 제거하기
+
+#### 20-1. `replace()`
 
 ```js
-const words = "ABCDEABCDE";
-const replace1 = words.replace("DE", "");
-const replace2 = words.replace(/DE/g, "");
+const words = 'ABCDEABCDE';
+const replace1 = words.replace('DE', '');
+const replace2 = words.replace(/DE/g, '');
 
 console.log(words); // "ABCDEABCDE"
 console.log(replace1); // "ABCABCDE"
 console.log(replace2); // "ABCABC"
 ```
+
+<br />
+
+## 🌳 알고리즘 구현
+
+### 1. 소수 판별
+
+```js
+function isPrime(num) {
+  if (num === 1) return false;
+
+  for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) {
+    if (num % i === 0) return false;
+  }
+
+  return true;
+}
+```
+
+<br />
+
+### 2. 팩토리얼
+
+```js
+function factorial(num) {
+  if (num < 0) return -1;
+  else if (num === 0) return 1;
+  else return num * factorial(num - 1);
+}
+```
+
+<br />
+
+### 3. 최대공약수(유클리드 호제법)
+
+```js
+function gcd(a, b) {
+  const num = a % b;
+  if (num === 0) return b;
+  return gcd(b, num);
+}
+```
+
+<br />
+
+## 5. Reference
+
+- [이것이 취업을 위한 코딩 테스트다 with 파이썬](https://product.kyobobook.co.kr/detail/S000001810273)
