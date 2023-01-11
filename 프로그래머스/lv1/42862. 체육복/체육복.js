@@ -1,20 +1,34 @@
 function solution(n, lost, reserve) {
-	const lostNum = lost.filter(person => !reserve.includes(person)).sort((a, b) => a - b);
-	const lostNumLen = lostNum.length;
+  const map = new Map();
+  let answer = 0;
 
-	const reserveNum = reserve.filter(person => !lost.includes(person)).sort((a, b) => a - b);
-	const reserveNumLen = reserveNum.length;
+  for (let i = 1; i <= n; i++) {
+    map.set(i, 1);
+  }
 
-	let answer = n - lostNum.length;
+  reserve.forEach(v => {
+    if (map.has(v)) map.set(v, map.get(v) + 1);
+  });
 
-	for (let i = 0; i < lostNumLen; i++) {
-		for (let j = 0; j < reserveNumLen; j++) {
-			if (lostNum[i] === reserveNum[j] - 1 || lostNum[i] === reserveNum[j] + 1) {
-				reserveNum.splice(j, 1);
-				answer++;
-			}
-		}
-	}
+  lost.forEach(v => {
+    if (map.has(v)) map.set(v, map.get(v) - 1);
+  });
 
-	return answer;
+  for (let i = 1; i <= n; i++) {
+    if (map.get(i) === 0) {
+      if (map.get(i - 1) === 2) {
+        map.set(i, map.get(i) + 1);
+        map.set(i - 1, map.get(i - 1) - 1);
+      } else if (map.get(i + 1) === 2) {
+        map.set(i, map.get(i) + 1);
+        map.set(i + 1, map.get(i + 1) - 1);
+      }
+    }
+  }
+
+  for (const [k, v] of map) {
+    if (0 < v) answer++;
+  }
+
+  return answer;
 }
