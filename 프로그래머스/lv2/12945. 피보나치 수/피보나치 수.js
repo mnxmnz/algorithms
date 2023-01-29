@@ -11,5 +11,5 @@ function fibonacci(num) {
 function solution(n) {
   const num = fibonacci(n);
 
-  return num[n] % 1234567;
+  return num[n];
 }
