@@ -659,6 +659,17 @@ function gcd(a, b) {
 
 <br />
 
+### 4. 피보나치 수열
+
+```js
+function fibonacci(num) {
+  if (num <= 1) return num;
+  return fibonacci(num - 2) + fibonacci(num - 1);
+}
+```
+
+<br />
+
 ## 📚 참고 자료
 
 - [이것이 취업을 위한 코딩 테스트다 with 파이썬](https://product.kyobobook.co.kr/detail/S000001810273)
