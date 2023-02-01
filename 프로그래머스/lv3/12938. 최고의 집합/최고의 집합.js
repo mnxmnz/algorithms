@@ -1,19 +1,11 @@
-/*
- * n개의 원소가 모두 같거나 편차가 가장 적게 설정하기
- * 나머지를 n개의 몫에 다시 배분하기
- */
-
 function solution(n, s) {
-    const share = Math.floor(s / n);
+    if(s < n) return [-1];
     
-    if(!share) return [-1];
+    const answer = new Array(n).fill(Math.floor(s / n));
     
-    const rest = s % n;
-    const answer = new Array(n).fill(share);
-    
-    for(let i = 0; i < rest; i++) {
-        answer[answer.length - 1 - i]++;
+    for(let i = 0; i < s % n; i++) {
+        answer[i]++;
     }
     
-    return answer;
+    return answer.sort((a, b) => a - b);
 }
