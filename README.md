@@ -634,6 +634,30 @@ console.log(replace2); // "ABCABC"
 
 <br />
 
+### 21. 두 배열 비교하기 (합집합, 교집합 구하기)
+
+#### 21-1. 합집합 `new Set()`
+
+```js
+const arr1 = [2, 8, 5, 4, 3];
+const arr2 = [1, 9, 6, 7, 3];
+const union = [...new Set([...arr1, ...arr2])];
+
+console.log(union); // [2, 8, 5, 4, 3, 1, 9, 6, 7]
+```
+
+#### 21-2. 교집합 `filter` `includes`
+
+```js
+const arr1 = [2, 8, 5, 4, 3];
+const arr2 = [1, 9, 6, 7, 3];
+const intersection = arr1.filter(num => arr2.includes(num));
+
+console.log(intersection); // [3]
+```
+
+<br />
+
 ## 🌳 알고리즘 구현
 
 ### 1. 소수 판별
