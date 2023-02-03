@@ -445,7 +445,7 @@ console.log(results); // 1
 
 ### 12. 배열 중복 제거하기
 
-#### 12-1. `set`
+#### 12-1. `new Set`
 
 ```js
 const arr = ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A'];
@@ -455,7 +455,7 @@ console.log(arr); // ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A']
 console.log(results); // ['A', 'B', 'C', 'D', 'E']
 ```
 
-#### 12-2. `filter` `indexOf`
+#### 12-2. `filter` / `indexOf`
 
 ```js
 const arr = ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A'];
@@ -465,7 +465,7 @@ console.log(arr); // ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A']
 console.log(results); // ['A', 'B', 'C', 'D', 'E']
 ```
 
-#### 12-3. `reduce` `includes`
+#### 12-3. `reduce` / `includes`
 
 ```js
 const arr = ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A'];
@@ -475,7 +475,7 @@ console.log(arr); // ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A']
 console.log(results); // ['A', 'B', 'C', 'D', 'E']
 ```
 
-#### 12-4. `forEach` `includes`
+#### 12-4. `forEach` / `includes`
 
 ```js
 const arr = ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A'];
@@ -559,9 +559,9 @@ console.log(decimal); // 42
 
 <br />
 
-### 17. 특정 조건을 충족하는 배열 요소 찾기
+### 17. 특정 조건을 충족하는 배열 요소의 유무 확인하기
 
-#### 17-1. `some()`
+#### 17-1. `some`
 
 ```js
 const arr = [1, 2, 3, 4, 5];
@@ -573,7 +573,7 @@ console.log(arr.some(even)); // true
 - 배열 요소 중 판별 함수를 통과하는 요소가 존재하는지 테스트
 - 빈 배열에서 호출하면 무조건 `false` 반환
 
-#### 17-2. `find()`
+#### 17-2. `find`
 
 ```js
 const arr = [5, 12, 8, 130, 44];
@@ -589,7 +589,7 @@ console.log(found); // 12
 
 ### 18. 절댓값 구하기
 
-#### 18-1. `Math.abs()`
+#### 18-1. `Math.abs`
 
 ```js
 console.log(Math.abs(-1)); // 1
@@ -602,7 +602,7 @@ console.log(Math.abs(null)); // 0
 
 <br />
 
-### 19. `new Map()` 정렬하기
+### 19. `new Map` 정렬하기
 
 #### 19-1. `sort`
 
@@ -620,7 +620,7 @@ console.log([...map].sort((a, b) => b[1] - a[1])); // [['c', 3],['b', 2],['a', 1
 
 ### 20. 문자열에서 특정 문자 제거하기
 
-#### 20-1. `replace()`
+#### 20-1. `replace`
 
 ```js
 const words = 'ABCDEABCDE';
@@ -636,7 +636,7 @@ console.log(replace2); // "ABCABC"
 
 ### 21. 두 배열 비교하기 (합집합, 교집합 구하기)
 
-#### 21-1. 합집합 `new Set()`
+#### 21-1. 합집합 `new Set`
 
 ```js
 const arr1 = [2, 8, 5, 4, 3];
@@ -646,7 +646,7 @@ const union = [...new Set([...arr1, ...arr2])];
 console.log(union); // [2, 8, 5, 4, 3, 1, 9, 6, 7]
 ```
 
-#### 21-2. 교집합 `filter` `includes`
+#### 21-2. 교집합 `filter` / `includes`
 
 ```js
 const arr1 = [2, 8, 5, 4, 3];
@@ -654,6 +654,32 @@ const arr2 = [1, 9, 6, 7, 3];
 const intersection = arr1.filter(num => arr2.includes(num));
 
 console.log(intersection); // [3]
+```
+
+<br />
+
+### 22. 아스키코드 변환하기
+
+> 65 ~ 90 : A ~ Z
+> 
+> 97 ~ 122 : a ~ z 
+
+#### 22-1. 문자열을 아스키코드 번호로 변환하기 `charCodeAt`
+
+```js
+const word = "ABC";
+
+console.log(word.charCodeAt()); // 65
+console.log(word.charCodeAt(1)); // 66
+console.log(word.charCodeAt(2)); // 67
+console.log(word.charCodeAt(3)); // NaN
+```
+
+#### 22-2. 아스키코드 번호를 문자열로 변환하기 `String.fromCharCode`
+
+```js
+console.log(String.fromCharCode(65)); // A
+console.log(String.fromCharCode(65, 66, 67)); // ABC
 ```
 
 <br />
