@@ -1,15 +1,12 @@
 function solution(sizes) {
-    let small = [];
-    let big = [];
-    
-    for(let x of sizes) {
-        x.sort((a, b) => a - b);
-        small.push(x[0]);
-        big.push(x[1]);
-    }
-    
-    let min = Math.max(...small);
-    let max = Math.max(...big);
-    
-    return min * max;
+  const sorted = [...sizes].map(size => size.sort((a, b) => a - b));
+  let w = 0;
+  let h = 0;
+
+  for (let i = 0; i < sorted.length; i++) {
+    w = Math.max(sorted[i][0], w);
+    h = Math.max(sorted[i][1], h);
+  }
+
+  return w * h;
 }
