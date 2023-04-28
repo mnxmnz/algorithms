@@ -59,6 +59,19 @@ console.log(results); // [{name: "YD", money: 500000}]
 
 <br />
 
+## 특정 조건을 충족하는 첫 번째 요소의 인덱스 반환하기
+
+- `findIndex`
+
+```js
+const arr = [1, 2, 3, 11, 22, 33];
+const results = arr.findIndex(element => element > 10);
+
+console.log(results); // 3
+```
+
+<br />
+
 ## 모든 요소에 같은 연산 처리하기
 
 - `map`
@@ -328,6 +341,26 @@ console.log(found); // 12
 
 <br />
 
+## 모든 요소가 특정 조건을 충족하는지 확인하기
+
+- `every`
+
+```js
+const arr = [2, 4, 6, 8, 10];
+const even = element => element % 2 === 0;
+
+console.log(arr.every(even)); // true
+```
+
+```js
+const arr = [2, 4, 5];
+const even = element => element % 2 === 0;
+
+console.log(arr.every(even)); // false
+```
+
+<br />
+
 ## 두 배열 비교하기 (합집합, 교집합 구하기)
 
 - 합집합 `new Set`
@@ -350,6 +383,26 @@ const arr2 = [1, 9, 6, 7, 3];
 const intersection = arr1.filter(num => arr2.includes(num));
 
 console.log(intersection); // [3]
+```
+
+<br />
+
+## 하위 배열 요소 이어 붙이기(배열 평탄화)
+
+- `flat`
+
+```js
+const arr1 = [1, 2, [3, 4]];
+console.log(arr1.flat()); // [1, 2, 3, 4]
+
+const arr2 = [1, 2, [3, 4, [5, 6]]];
+console.log(arr2.flat()); // [1, 2, 3, 4, [5, 6]]
+
+const arr3 = [1, 2, [3, 4, [5, 6]]];
+console.log(arr3.flat(2)); // [1, 2, 3, 4, 5, 6]
+
+const arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+console.log(arr4.flat(Infinity)); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
 <br />
