@@ -14,6 +14,8 @@ console.log(numbers); // [1, 2, 3, 4, 5]
 console.log(sum); // 15
 ```
 
+- `return`, `break`를 지원하지 않음
+
 <br />
 
 - `reduce`
@@ -109,6 +111,16 @@ console.log(results); // [3, 4, 5]
 ```
 
 - 첫 번째 인자만 작성하면 시작 인덱스부터 마지막 인덱스까지 복사
+
+```js
+const arr = [0, 1, 2, 3, 4, 5];
+const results = arr.slice(-2);
+
+console.log(arr); // [0, 1, 2, 3, 4, 5]
+console.log(results); // [4, 5]
+```
+
+- 음수 인자를 작성해서 배열의 맨 마지막 인덱스부터 연산할 수 있음
 
 <br />
 
@@ -280,6 +292,8 @@ arr.forEach(v => {
 console.log(arr); // ['A', 'B', 'A', 'C', 'A', 'D', 'A', 'E', 'A']
 console.log(results); // ['A', 'B', 'C', 'D', 'E']
 ```
+
+- forEach에서는 `return`, `break`를 지원하지 않음
 
 <br />
 

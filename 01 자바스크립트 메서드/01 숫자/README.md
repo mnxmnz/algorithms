@@ -84,3 +84,13 @@ console.log(Math.abs(null)); // 0
 ```
 
 <br />
+
+## 소수점 자릿수 지정하기
+
+```js
+console.log((0.1).toFixed(4)); // 0.1000
+console.log((0.12345).toFixed(2)); // 0.12
+console.log((1234.5678).toFixed(1)); // 123.6
+```
+
+<br />
